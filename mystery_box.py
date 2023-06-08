@@ -28,10 +28,10 @@ class Mystery_Box:
         #Balance Display (row 1)
         def balanceMsg(amount):
             amount = self.balance.get()
-            self.balance_label = Label(self.gamble_frame, text=f"Balance: ${int(amount):.2f}",
+            self.balance = Label(self.gamble_frame, text=f"Balance: ${int(amount):.2f}",
                                        font=("Arial 10 bold"), wrap=250, justify=CENTER, bg = "#FFDF00", 
                                        padx=10, pady=10, width=30)
-            self.balance_label.grid(row=1)
+            self.balance.grid(row=1)
             return messagebox.showinfo("mystery box program", f"you have entered a starting balance of ${int(amount):.2f}. Thank you for donating!")
 
         self.balance = Entry(self.gamble_frame, text="Please enter a starting balance.",
