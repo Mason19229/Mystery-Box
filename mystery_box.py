@@ -41,7 +41,7 @@ class Mystery_Box:
              
 
         #Description label (row 2)
-        self.description_label = Label(self.gamble_frame, text="This gambling game contributes all earnings to charity. The possible prizes are Pb($0), Cu($2), Ag($4), and Au($10).",
+        self.description_label = Label(self.gamble_frame, text="This gambling game contributes all earnings to charity. The possible prizes are Pb($0), Cu($2), Ag($4), and Au($10). Please see the instructions in help before playing.",
                                        font ="arial 10", justify=LEFT, bg="white", wrap=200,
                                        padx=10, pady=10, width=30)
         self.description_label.grid(row=2, pady=10)

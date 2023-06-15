@@ -29,7 +29,7 @@ class Mystery_Box:
     def help(self):
         print("You asked for help")
         get_help = Help(self)
-        get_help.help_text_label.configure(text="Help text goes here")
+        get_help.help_text_label.configure(text="You have a limit of 10 spins in mystery box gambling to reduce the chance of addiction. \n\nThe legal age of gambling in New Zealand is 20 years old. \n\nTo play, enter a balance amount in the box and press the play button. You can find your previous spins in the history button.")
 
 class Help:
     def __init__(self, partner):
@@ -46,7 +46,7 @@ class Help:
         self.help_box.protocol('WM_DELETE_WINDOW', partial(self.close_help, partner))
 
         #Set up GUI Frame
-        self.help_frame = Frame(self.help_box, bg=background, width=300)
+        self.help_frame = Frame(self.help_box, bg=background)
         self.help_frame.grid()
 
         #Set up Help heading (row 0)
@@ -56,8 +56,8 @@ class Help:
 
         #Help text (label, row 1)
         self.help_text_label = Label(self.help_frame, text="Help Text", 
-                                     justify=LEFT, width=40, 
-                                     bg=background, fg="white", wrap=250)
+                                     justify=LEFT, 
+                                     bg=background, fg="white", wraplength=200)
         self.help_text_label.grid(row=1)
 
         #Dismiss button (row 2)
@@ -74,6 +74,6 @@ class Help:
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Converter")
+    root.title("Mystery Box Gambling")
     something = Mystery_Box()
     root.mainloop()
