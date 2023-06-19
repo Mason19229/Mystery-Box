@@ -26,35 +26,35 @@ class Mystery_Box:
         self.mystery_box_label.grid(row=0)
 
         #Balance Display (row 1)
-        def balanceMsg(amount):
-            amount = self.balance.get()
-            self.balance = Label(self.gamble_frame, text=f"Balance: ${int(amount):.2f}",
-                                       font=("Arial 10 bold"), wrap=250, justify=CENTER, bg = "#FFDF00", 
-                                       padx=10, pady=10, width=30)
-            self.balance.grid(row=1)
-            return messagebox.showinfo("mystery box program", f"you have entered a starting balance of ${int(amount):.2f}. Thank you for donating!")
+        def balancelabel(balance_amount):
+            balance_amount += self.balance_entry.get()
+            self.balance_label = Label(self.gamble_frame, text=f"Balance: ${int(balance_amount):.2f}",
+                                font=("Arial 10 bold"), wrap=250, justify=CENTER, bg = "#FFDF00", 
+                                padx=10, pady=10, width=30)
+            self.balance_label.grid(row=1)
 
-        self.balance = Entry(self.gamble_frame, text="Please enter a starting balance.",
+        #Balance entry (row 2)
+        self.balance_entry = Entry(self.gamble_frame, text="Please enter a starting balance.",
                              font="Arial 14 italic")
-        self.balance.bind("<Return>", balanceMsg)
-        self.balance.grid(row=1)  
+        self.balance_entry.bind('<Return>', balancelabel)
+        self.balance_entry.grid(row=2)  
              
 
-        #Description label (row 2)
+        #Description label (row 3)
         self.description_label = Label(self.gamble_frame, text="This gambling game contributes all earnings to charity. The possible prizes are Pb($0), Cu($2), Ag($4), and Au($10). Please see the instructions in help before playing.",
                                        font ="arial 10", justify=LEFT, bg="white", wrap=200,
                                        padx=10, pady=10, width=30)
-        self.description_label.grid(row=2, pady=10)
+        self.description_label.grid(row=3, pady=10)
 
-        #Play button (row 3)
+        #Play button (row 4)
         self.play_button = Button(self.gamble_frame, text = "Press to Play ($2)", 
                                   font = "Arial 10 bold", bg="#A20025", fg="white",
                                   padx=10, pady=10, width=20)
-        self.play_button.grid(row=3)
+        self.play_button.grid(row=4)
 
-        #Split frame (row 4)
+        #Split frame (row 5)
         self.split_page_frame = Frame(self.gamble_frame, bg=background_color)
-        self.split_page_frame.grid(row=4, pady=10)
+        self.split_page_frame.grid(row=5, pady=10)
 
         #History button (row 0, column 0 of split page)
         self.history_button = Button(self.split_page_frame, text = "History", 
@@ -68,11 +68,11 @@ class Mystery_Box:
                                      padx=10, pady=10, width=8)
         self.help_button.grid(row=0, column=1, padx=5)
 
-        #Summary button (row 5)
+        #Summary button (row 6)
         self.summary_button = Button(self.gamble_frame, text = "Summary / Exit", 
                                   font = "Arial 10 bold", bg="#E51400", fg="white",
                                   padx=10, pady=10, width=20)
-        self.summary_button.grid(row=5)
+        self.summary_button.grid(row=6)
 
 #main routine
 if __name__ == "__main__":
