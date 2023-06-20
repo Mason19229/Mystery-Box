@@ -4,6 +4,10 @@ from functools import partial #to present unwanted windows
 
 import random
 
+prize = [0, 2, 4, 10]
+spins = 0
+amount = 0
+
 class Mystery_Box:
     def __init__(self):
 
@@ -26,18 +30,18 @@ class Mystery_Box:
         self.mystery_box_label.grid(row=0)
 
         #Balance Display (row 1)
-        def balancelabel(balance_amount):
-            balance_amount += self.balance_entry.get()
-            self.balance_label = Label(self.gamble_frame, text=f"Balance: ${int(balance_amount):.2f}",
+        def balancelabel():
+            global amount
+            amount += 2
+            self.balance_label = Label(self.gamble_frame, text=f"Balance: ${int(amount):.2f}",
                                 font=("Arial 10 bold"), wrap=250, justify=CENTER, bg = "#FFDF00", 
                                 padx=10, pady=10, width=30)
             self.balance_label.grid(row=1)
 
         #Balance entry (row 2)
-        self.balance_entry = Entry(self.gamble_frame, text="Please enter a starting balance.",
-                             font="Arial 14 italic")
-        self.balance_entry.bind('<Return>', balancelabel)
-        self.balance_entry.grid(row=2)  
+        self.balance_button = Button(self.gamble_frame, text="Press to add $2 to balance",
+                             font="Arial 10 italic", command=lambda:balancelabel())
+        self.balance_button.grid(row=2, pady=5)  
              
 
         #Description label (row 3)
